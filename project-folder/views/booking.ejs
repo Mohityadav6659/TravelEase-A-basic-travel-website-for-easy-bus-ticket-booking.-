@@ -1,0 +1,52 @@
+<!-- booking.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking | Travel Planner</title>
+    <link rel="stylesheet" href="/styles/booking.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Booking Confirmation</h1>
+    </header>
+
+    <main>
+      <!-- Display trip details -->
+      <section class="trip-details">
+        <h2>Trip Details</h2>
+        <p><strong>From:</strong> <%= trip.from_city %></p>
+        <p><strong>To:</strong> <%= trip.to_city %></p>
+        <p><strong>Date:</strong> <%= trip.travel_date %></p>
+        <p><strong>Price:</strong> ₹<%= trip.price %></p>
+      </section>
+
+      <!-- Form to collect user details -->
+      <section class="booking-form">
+        <h2>Enter Your Details</h2>
+        <form action="/complete-booking" method="POST">
+          <input type="hidden" name="tripId" value="<%= trip.trip_id %>" />
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="passengers">Passengers:</label>
+            <input type="number" name="passengers" id="passengers" required />
+          </div>
+          <button type="submit" class="btn">Confirm Booking</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Travel Planner. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

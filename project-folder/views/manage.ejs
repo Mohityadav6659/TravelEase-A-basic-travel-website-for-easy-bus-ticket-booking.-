@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage My Booking | Travel Planner</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/manage.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <h1 class="logo"><a href="/">Travel Planner</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/plan">Plan Your Journey</a></li>
+            <li><a href="/manage">Manage My Booking</a></li>
+            <li><a href="/help">Help</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="manage-section">
+      <h2>Manage Your Booking</h2>
+
+      <!-- Booking search form -->
+      <form action="/manage" method="POST">
+        <div class="form-group">
+          <label for="bookingId">Booking ID:</label>
+          <input
+            type="text"
+            name="bookingId"
+            id="bookingId"
+            placeholder="Enter your Booking ID"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">Find Booking</button>
+      </form>
+
+      <!-- If a booking is found, display its details -->
+      <% if (booking) { %>
+      <section class="booking-details">
+        <h3>Booking Details</h3>
+        <p><strong>Booking ID:</strong> <%= booking.booking_id %></p>
+        <p><strong>Name:</strong> <%= booking.customer_name %></p>
+        <p><strong>Email:</strong> <%= booking.customer_email %></p>
+        <p><strong>From:</strong> <%= booking.from_city %></p>
+        <p><strong>To:</strong> <%= booking.to_city %></p>
+        <p><strong>Travel Date:</strong> <%= booking.travel_date %></p>
+        <p><strong>Number of Passengers:</strong> <%= booking.passengers %></p>
+        <p><strong>Total Price:</strong> ₹<%= booking.price %></p>
+      </section>
+      <% } else if (message) { %>
+      <!-- If there is an error message, display it -->
+      <p class="error-message"><%= message %></p>
+      <% } %>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Travel Planner. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

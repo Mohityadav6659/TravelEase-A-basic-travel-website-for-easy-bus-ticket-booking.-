@@ -1,0 +1,142 @@
+/* plan.css */
+
+/* General Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Main Header */
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  color: #333;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Button Styles */
+button {
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Trip Results Section */
+.trip-results {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.trip-results h2 {
+  text-align: center;
+  color: #333;
+}
+
+.trip-results ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.trip-results li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trip-info {
+  flex: 1;
+}
+
+.price {
+  font-weight: bold;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #d9534f; /* Bootstrap danger color */
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+  width: 100%;
+}

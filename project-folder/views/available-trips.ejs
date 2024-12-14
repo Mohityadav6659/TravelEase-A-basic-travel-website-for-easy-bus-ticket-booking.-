@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Trips</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/available-trips.css" />
+  </head>
+  <body>
+    <%- include('partials/header'); %>
+
+    <section class="available-trips">
+      <div class="container">
+        <h2>Available Trips from <%= from %> to <%= to %> on <%= date %></h2>
+        <p>Passengers: <%= passengers %></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Departure Time</th>
+              <th>Price</th>
+              <th>Book Now</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% trips.forEach(trip => { %>
+            <tr>
+              <td><%= trip.departure %></td>
+              <td><%= trip.price %></td>
+              <td>
+                <form action="/book" method="POST">
+                  <input type="hidden" name="tripId" value="<%= trip.id %>" />
+                  <input type="hidden" name="from" value="<%= from %>" />
+                  <input type="hidden" name="to" value="<%= to %>" />
+                  <input type="hidden" name="date" value="<%= date %>" />
+                  <input
+                    type="hidden"
+                    name="passengers"
+                    value="<%= passengers %>"
+                  />
+                  <button type="submit" class="btn">Book Now</button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <%- include('partials/footer'); %>
+  </body>
+</html>

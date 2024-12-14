@@ -1,0 +1,32 @@
+<!-- views/confirmation.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="/styles/confirmation.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Booking Confirmed</h1>
+    </header>
+
+    <main>
+      <section class="confirmation-details">
+        <h2>Thank you for booking with us!</h2>
+        <p>Your booking has been confirmed. Below is your booking ID:</p>
+        <p><strong>Booking ID:</strong> <%= bookingId %></p>
+        <p>
+          Please save this ID for future reference. You can use it to manage or
+          check your booking later.
+        </p>
+        <a href="/" class="btn">Go to Homepage</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Travel Planner. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

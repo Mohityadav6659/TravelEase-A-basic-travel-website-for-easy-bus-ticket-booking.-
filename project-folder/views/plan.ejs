@@ -1,0 +1,77 @@
+<!-- views/plan.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles/plan.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <h1 class="logo"><a href="/">Travel Planner</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/plan">Plan Your Journey</a></li>
+            <li><a href="/manage">Manage My Booking</a></li>
+            <li><a href="/help">Help</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1>Plan Your Journey</h1>
+
+    <form action="/plan" method="POST">
+      <label for="from">From:</label>
+      <input
+        type="text"
+        name="from"
+        id="from"
+        placeholder="Departure City"
+        required
+      />
+
+      <label for="to">To:</label>
+      <input
+        type="text"
+        name="to"
+        id="to"
+        placeholder="Destination City"
+        required
+      />
+
+      <label for="date">Date:</label>
+      <input type="date" name="date" id="date" required />
+
+      <button type="submit">Search</button>
+    </form>
+
+    <section class="trip-results">
+      <h2>Available Trips</h2>
+      <% if (message) { %>
+      <p class="error-message"><%= message %></p>
+      <% } %>
+      <ul>
+        <% if (trips && trips.length > 0) { %> <% trips.forEach(trip => { %>
+        <li>
+          <div class="trip-info">
+            <span>From: <%= trip.from_city %></span>
+            <span>To: <%= trip.to_city %></span>
+            <span>Date: <%= trip.travel_date %></span>
+            <span class="price">Price: ₹<%= trip.price %></span>
+            <span>id :<%= trip.trip_id %></span>
+          </div>
+
+          <a href="/book-trip/<%= trip.trip_id %>" class="btn">Book Now</a>
+        </li>
+        <% }); %> <% } else { %>
+        <li>No trips available for the selected route and date.</li>
+        <% } %>
+      </ul>
+    </section>
+    <footer>
+      <p>&copy; 2024 Travel Planner. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
